@@ -30,8 +30,11 @@ configurations {
 }
 
 dependencies {
+
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compileOnly('org.projectlombok:lombok')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+	providedRuntime('org.apache.tomcat.embed:tomcat-embed-jasper')
+	providedRuntime('javax.servlet:javax.servlet-api')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
