@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WelcomeController {
 
-    @RequestMapping(value = "/welcome")
+    @RequestMapping(value = "/index")
     public String welcome(Model model){
-        model.addAttribute("greeting"," Welcome to our site");
 
-        return "welcome";
+        model.addAttribute("greeting","Welcome to our site");
+
+        return "index";
     }
 }
