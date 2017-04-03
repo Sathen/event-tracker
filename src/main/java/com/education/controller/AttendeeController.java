@@ -3,17 +3,20 @@ package com.education.controller;
 import com.education.model.Attendee;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import javax.validation.Valid;
 
 @Controller
 @SessionAttributes("attendee")
 public class AttendeeController {
 
     @RequestMapping(value = "/attendee", method = RequestMethod.GET)
-    public String displayAttendeePage(Model model){
+    public String displayAttendeePage(Model model) {
         Attendee attendee = new Attendee();
         model.addAttribute("attendee", attendee);
 
@@ -21,8 +24,11 @@ public class AttendeeController {
     }
 
     @RequestMapping(value = "/attendee", method = RequestMethod.POST)
-    public String processAttendee(@ModelAttribute("attendee")Attendee attendee){
+    public String processAttendee(@Valid @ModelAttribute("attendee") Attendee attendee, BindingResult result) {
 
+        if (result.hasErrors()) {
+            return "attendee";
+        }
         System.out.println(attendee);
 
         return "redirect:index";

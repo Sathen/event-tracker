@@ -1,15 +1,15 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.2.RELEASE'
-	}
-	repositories {
-		mavenCentral()
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
 
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 
-	}
+    }
 }
 
 apply plugin: 'java'
@@ -22,19 +22,21 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 configurations {
-	providedRuntime
+    providedRuntime
 }
 
 dependencies {
 
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compileOnly('org.projectlombok:lombok')
-	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
-	providedRuntime('org.apache.tomcat.embed:tomcat-embed-jasper')
-	providedRuntime('javax.servlet:javax.servlet-api')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.hibernate:hibernate-validator:5.0.3.Final')
+    compile('javax.validation:validation-api:1.1.0.Final')
+    compileOnly('org.projectlombok:lombok')
+    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+    providedRuntime('org.apache.tomcat.embed:tomcat-embed-jasper')
+    providedRuntime('javax.servlet:javax.servlet-api')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
