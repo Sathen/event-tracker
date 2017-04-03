@@ -17,8 +17,8 @@ public class EventController {
 
     @RequestMapping(value = "/event", method = RequestMethod.GET)
     public String displayEventPage(Model model) {
-        Event event = new Event();
-        event.setName("Java Some Event");
+        Event event = new Event("Java Some Event");
+       // event.setName("Java Some Event");
         model.addAttribute("event", event);
 
         return "event";
